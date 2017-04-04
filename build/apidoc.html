@@ -1,0 +1,2183 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/tildeio/rsvp.js#readme"
+
+    >rsvp (v3.5.0)</a>
+</h1>
+<h4>A lightweight library that provides tools for organizing asynchronous code</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rsvp">module rsvp</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.Promise">
+            function <span class="apidocSignatureSpan">rsvp.</span>Promise
+            <span class="apidocSignatureSpan">(resolver, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.all">
+            function <span class="apidocSignatureSpan">rsvp.</span>all
+            <span class="apidocSignatureSpan">(array, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.allSettled">
+            function <span class="apidocSignatureSpan">rsvp.</span>allSettled
+            <span class="apidocSignatureSpan">(entries, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.asap">
+            function <span class="apidocSignatureSpan">rsvp.</span>asap
+            <span class="apidocSignatureSpan">(callback, arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.async">
+            function <span class="apidocSignatureSpan">rsvp.</span>async
+            <span class="apidocSignatureSpan">(callback, arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.cast">
+            function <span class="apidocSignatureSpan">rsvp.</span>cast
+            <span class="apidocSignatureSpan">(value, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.configure">
+            function <span class="apidocSignatureSpan">rsvp.</span>configure
+            <span class="apidocSignatureSpan">(name, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.defer">
+            function <span class="apidocSignatureSpan">rsvp.</span>defer
+            <span class="apidocSignatureSpan">(label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.denodeify">
+            function <span class="apidocSignatureSpan">rsvp.</span>denodeify
+            <span class="apidocSignatureSpan">(nodeFunc, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.filter">
+            function <span class="apidocSignatureSpan">rsvp.</span>filter
+            <span class="apidocSignatureSpan">(promises, filterFn, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.hash">
+            function <span class="apidocSignatureSpan">rsvp.</span>hash
+            <span class="apidocSignatureSpan">(object, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.hashSettled">
+            function <span class="apidocSignatureSpan">rsvp.</span>hashSettled
+            <span class="apidocSignatureSpan">(object, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.map">
+            function <span class="apidocSignatureSpan">rsvp.</span>map
+            <span class="apidocSignatureSpan">(promises, mapFn, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.off">
+            function <span class="apidocSignatureSpan">rsvp.</span>off
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.on">
+            function <span class="apidocSignatureSpan">rsvp.</span>on
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.race">
+            function <span class="apidocSignatureSpan">rsvp.</span>race
+            <span class="apidocSignatureSpan">(array, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.reject">
+            function <span class="apidocSignatureSpan">rsvp.</span>reject
+            <span class="apidocSignatureSpan">(reason, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.resolve">
+            function <span class="apidocSignatureSpan">rsvp.</span>resolve
+            <span class="apidocSignatureSpan">(value, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.rethrow">
+            function <span class="apidocSignatureSpan">rsvp.</span>rethrow
+            <span class="apidocSignatureSpan">(reason)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rsvp.</span>EventTarget</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rsvp.</span>Promise.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rsvp.</span>default</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rsvp.EventTarget">module rsvp.EventTarget</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.EventTarget.mixin">
+            function <span class="apidocSignatureSpan">rsvp.EventTarget.</span>mixin
+            <span class="apidocSignatureSpan">(object)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.EventTarget.off">
+            function <span class="apidocSignatureSpan">rsvp.EventTarget.</span>off
+            <span class="apidocSignatureSpan">(eventName, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.EventTarget.on">
+            function <span class="apidocSignatureSpan">rsvp.EventTarget.</span>on
+            <span class="apidocSignatureSpan">(eventName, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.EventTarget.trigger">
+            function <span class="apidocSignatureSpan">rsvp.EventTarget.</span>trigger
+            <span class="apidocSignatureSpan">(eventName, options, label)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rsvp.Promise">module rsvp.Promise</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.Promise.Promise">
+            function <span class="apidocSignatureSpan">rsvp.</span>Promise
+            <span class="apidocSignatureSpan">(resolver, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.Promise.all">
+            function <span class="apidocSignatureSpan">rsvp.Promise.</span>all
+            <span class="apidocSignatureSpan">(entries, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.Promise.cast">
+            function <span class="apidocSignatureSpan">rsvp.Promise.</span>cast
+            <span class="apidocSignatureSpan">(object, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.Promise.race">
+            function <span class="apidocSignatureSpan">rsvp.Promise.</span>race
+            <span class="apidocSignatureSpan">(entries, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.Promise.reject">
+            function <span class="apidocSignatureSpan">rsvp.Promise.</span>reject
+            <span class="apidocSignatureSpan">(reason, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.Promise.resolve">
+            function <span class="apidocSignatureSpan">rsvp.Promise.</span>resolve
+            <span class="apidocSignatureSpan">(object, label)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rsvp.Promise.prototype">module rsvp.Promise.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.Promise.prototype._onError">
+            function <span class="apidocSignatureSpan">rsvp.Promise.prototype.</span>_onError
+            <span class="apidocSignatureSpan">(reason)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.Promise.prototype.catch">
+            function <span class="apidocSignatureSpan">rsvp.Promise.prototype.</span>catch
+            <span class="apidocSignatureSpan">(onRejection, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.Promise.prototype.constructor">
+            function <span class="apidocSignatureSpan">rsvp.Promise.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(resolver, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.Promise.prototype.finally">
+            function <span class="apidocSignatureSpan">rsvp.Promise.prototype.</span>finally
+            <span class="apidocSignatureSpan">(callback, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.Promise.prototype.then">
+            function <span class="apidocSignatureSpan">rsvp.Promise.prototype.</span>then
+            <span class="apidocSignatureSpan">(onFulfillment, onRejection, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">rsvp.Promise.prototype.</span>_guidKey</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rsvp.default">module rsvp.default</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.Promise">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>Promise
+            <span class="apidocSignatureSpan">(resolver, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.all">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>all
+            <span class="apidocSignatureSpan">(array, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.allSettled">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>allSettled
+            <span class="apidocSignatureSpan">(entries, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.asap">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>asap
+            <span class="apidocSignatureSpan">(callback, arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.async">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>async
+            <span class="apidocSignatureSpan">(callback, arg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.cast">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>cast
+            <span class="apidocSignatureSpan">(value, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.configure">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>configure
+            <span class="apidocSignatureSpan">(name, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.defer">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>defer
+            <span class="apidocSignatureSpan">(label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.denodeify">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>denodeify
+            <span class="apidocSignatureSpan">(nodeFunc, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.filter">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>filter
+            <span class="apidocSignatureSpan">(promises, filterFn, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.hash">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>hash
+            <span class="apidocSignatureSpan">(object, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.hashSettled">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>hashSettled
+            <span class="apidocSignatureSpan">(object, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.map">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>map
+            <span class="apidocSignatureSpan">(promises, mapFn, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.off">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>off
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.on">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>on
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.race">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>race
+            <span class="apidocSignatureSpan">(array, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.reject">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>reject
+            <span class="apidocSignatureSpan">(reason, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.resolve">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>resolve
+            <span class="apidocSignatureSpan">(value, label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rsvp.default.rethrow">
+            function <span class="apidocSignatureSpan">rsvp.default.</span>rethrow
+            <span class="apidocSignatureSpan">(reason)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rsvp.default.</span>EventTarget</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rsvp" id="apidoc.module.rsvp">module rsvp</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.Promise" id="apidoc.element.rsvp.Promise">
+        function <span class="apidocSignatureSpan">rsvp.</span>Promise
+        <span class="apidocSignatureSpan">(resolver, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Promise$1(resolver, label) {
+  this._id = counter++;
+  this._label = label;
+  this._state = undefined;
+  this._result = undefined;
+  this._subscribers = [];
+
+  config.instrument &#x26;&#x26; instrument$1(&#x27;created&#x27;, this);
+
+  if (noop !== resolver) {
+    typeof resolver !== &#x27;function&#x27; &#x26;&#x26; needsResolver();
+    this instanceof Promise$1 ? initializePromise(this, resolver) : needsNew();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+section below on TaskJS for more information.
+
+### Basic Usage
+
+```javascript
+var RSVP = require(&#x27;rsvp&#x27;);
+
+var promise = new RSVP.<span class="apidocCodeKeywordSpan">Promise</span>(function(resolve, reject) {
+  // succeed
+  resolve(value);
+  // or reject
+  reject(error);
+});
+
+promise.then(function(value) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.all" id="apidoc.element.rsvp.all">
+        function <span class="apidocSignatureSpan">rsvp.</span>all
+        <span class="apidocSignatureSpan">(array, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function all$3(array, label) {
+  return Promise$1.all(array, label);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+is rejected.
+
+```javascript
+var promises = [2, 3, 5, 7, 11, 13].map(function(id){
+  return getJSON(&#x22;/post/&#x22; + id + &#x22;.json&#x22;);
+});
+
+RSVP.<span class="apidocCodeKeywordSpan">all</span>(promises).then(function(posts) {
+  // posts contains an array of results for the given promises
+}).catch(function(reason){
+  // if any of the promises fails.
+});
+```
+
+## Hash of promises
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.allSettled" id="apidoc.element.rsvp.allSettled">
+        function <span class="apidocSignatureSpan">rsvp.</span>allSettled
+        <span class="apidocSignatureSpan">(entries, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function allSettled$1(entries, label) {
+  return new AllSettled(Promise$1, entries, label).promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.asap" id="apidoc.element.rsvp.asap">
+        function <span class="apidocSignatureSpan">rsvp.</span>asap
+        <span class="apidocSignatureSpan">(callback, arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function asap$1(callback, arg) {
+  queue$1[len] = callback;
+  queue$1[len + 1] = arg;
+  len += 2;
+  if (len === 2) {
+    // If len is 1, that means that we need to schedule an async flush.
+    // If additional callbacks are queued before the queue is flushed, they
+    // will be processed by this flush that we are scheduling.
+    scheduleFlush$1();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.async" id="apidoc.element.rsvp.async">
+        function <span class="apidocSignatureSpan">rsvp.</span>async
+        <span class="apidocSignatureSpan">(callback, arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function async(callback, arg) {
+  return config.async(callback, arg);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.cast" id="apidoc.element.rsvp.cast">
+        function <span class="apidocSignatureSpan">rsvp.</span>cast
+        <span class="apidocSignatureSpan">(value, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resolve$3(value, label) {
+  return Promise$1.resolve(value, label);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.configure" id="apidoc.element.rsvp.configure">
+        function <span class="apidocSignatureSpan">rsvp.</span>configure
+        <span class="apidocSignatureSpan">(name, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function configure(name, value) {
+  if (name === &#x27;onerror&#x27;) {
+    // handle for legacy users that expect the actual
+    // error to be passed to their function added via
+    // `RSVP.configure(&#x27;onerror&#x27;, someFunctionHere);`
+    config[&#x27;on&#x27;](&#x27;error&#x27;, value);
+    return;
+  }
+
+  if (arguments.length === 2) {
+    config[name] = value;
+  } else {
+    return config[name];
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+
+**NOTE:** promises do allow for errors to be handled asynchronously, so
+this callback may result in false positives.
+
+**NOTE:** Usage of `RSVP.<span class="apidocCodeKeywordSpan">configure</span>(&#x27;onerror&#x27;, yourCustomFunction);` is
+deprecated in favor of using `RSVP.on`.
+
+
+## Finally
+
+`finally` will be invoked regardless of the promise&#x27;s fate, just as native
+try/catch/finally behaves.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.defer" id="apidoc.element.rsvp.defer">
+        function <span class="apidocSignatureSpan">rsvp.</span>defer
+        <span class="apidocSignatureSpan">(label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function defer$1(label) {
+  var deferred = { resolve: undefined, reject: undefined };
+
+  deferred.promise = new Promise$1(function (resolve, reject) {
+    deferred.resolve = resolve;
+    deferred.reject = reject;
+  }, label);
+
+  return deferred;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  or
+{ state: &#x27;rejected&#x27;, reason: reason }
+```
+
+## Deferred
+
+&#x3e; The `RSVP.Promise` constructor is generally a better, less error-prone choice
+&#x3e; than `RSVP.<span class="apidocCodeKeywordSpan">defer</span>()`. Promises are recommended unless the specific
+&#x3e; properties of deferred are needed.
+
+Sometimes one needs to create a deferred object, without immediately specifying
+how it will be resolved. These deferred objects are essentially a wrapper around
+a promise, whilst providing late access to the `resolve()` and `reject()` methods.
+
+A deferred object has this form: `{ promise, resolve(x), reject(r) }`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.denodeify" id="apidoc.element.rsvp.denodeify">
+        function <span class="apidocSignatureSpan">rsvp.</span>denodeify
+        <span class="apidocSignatureSpan">(nodeFunc, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function denodeify$1(nodeFunc, options) {
+  var fn = function fn() {
+    var self = this;
+    var l = arguments.length;
+    var args = new Array(l + 1);
+    var promiseInput = false;
+
+    for (var i = 0; i &#x3c; l; ++i) {
+      var arg = arguments[i];
+
+      if (!promiseInput) {
+        // TODO: clean this up
+        promiseInput = needsPromiseInput(arg);
+        if (promiseInput === GET_THEN_ERROR$1) {
+          var p = new Promise$1(noop);
+          reject(p, GET_THEN_ERROR$1.value);
+          return p;
+        } else if (promiseInput &#x26;&#x26; promiseInput !== true) {
+          arg = wrapThenable(promiseInput, arg);
+        }
+      }
+      args[i] = arg;
+    }
+
+    var promise = new Promise$1(noop);
+
+    args[l] = function (err, val) {
+      if (err) reject(promise, err);else if (options === undefined) resolve(promise, val);else if (options === true) resolve(promise
+, arrayResult(arguments));else if (isArray(options)) resolve(promise, makeObject(arguments, options));else resolve(promise, val);
+    };
+
+    if (promiseInput) {
+      return handlePromiseInput(promise, args, nodeFunc, self);
+    } else {
+      return handleValueInput(promise, args, nodeFunc, self);
+    }
+  };
+
+  fn.__proto__ = nodeFunc;
+
+  return fn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.filter" id="apidoc.element.rsvp.filter">
+        function <span class="apidocSignatureSpan">rsvp.</span>filter
+        <span class="apidocSignatureSpan">(promises, filterFn, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function filter$1(promises, filterFn, label) {
+  var promise = isArray(promises) ? resolveAll(promises, label) : resolveSingle(promises, label);
+  return promise.then(function (values) {
+    if (!isFunction(filterFn)) {
+      throw new TypeError(&#x22;You must pass a function as filter&#x27;s second argument.&#x22;);
+    }
+
+    var length = values.length;
+    var filtered = new Array(length);
+
+    for (var i = 0; i &#x3c; length; i++) {
+      filtered[i] = filterFn(values[i]);
+    }
+
+    return resolveAll(filtered, label).then(function (filtered) {
+      var results = new Array(length);
+      var newLength = 0;
+
+      for (var i = 0; i &#x3c; length; i++) {
+        if (filtered[i]) {
+          results[newLength] = values[i];
+          newLength++;
+        }
+      }
+
+      results.length = newLength;
+
+      return results;
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.hash" id="apidoc.element.rsvp.hash">
+        function <span class="apidocSignatureSpan">rsvp.</span>hash
+        <span class="apidocSignatureSpan">(object, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function hash$1(object, label) {
+  return new PromiseHash(Promise$1, object, label).promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+var promises = {
+  posts: getJSON(&#x22;/posts.json&#x22;),
+  users: getJSON(&#x22;/users.json&#x22;)
+};
+
+RSVP.<span class="apidocCodeKeywordSpan">hash</span>(promises).then(function(results) {
+  console.log(results.users) // print the users.json results
+  console.log(results.posts) // print the posts.json results
+});
+```
+
+## All settled and hash settled
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.hashSettled" id="apidoc.element.rsvp.hashSettled">
+        function <span class="apidocSignatureSpan">rsvp.</span>hashSettled
+        <span class="apidocSignatureSpan">(object, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function hashSettled$1(object, label) {
+  return new HashSettled(Promise$1, object, label).promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.map" id="apidoc.element.rsvp.map">
+        function <span class="apidocSignatureSpan">rsvp.</span>map
+        <span class="apidocSignatureSpan">(promises, mapFn, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function map$1(promises, mapFn, label) {
+  return Promise$1.all(promises, label).then(function (values) {
+    if (!isFunction(mapFn)) {
+      throw new TypeError(&#x22;You must pass a function as map&#x27;s second argument.&#x22;);
+    }
+
+    var length = values.length;
+    var results = new Array(length);
+
+    for (var i = 0; i &#x3c; length; i++) {
+      results[i] = mapFn(values[i]);
+    }
+
+    return Promise$1.all(results, label);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Sometimes you might want to work with many promises at once. If you
+pass an array of promises to the `all()` method it will return a new
+promise that will be fulfilled when all of the promises in the array
+have been fulfilled; or rejected immediately if any promise in the array
+is rejected.
+
+```javascript
+var promises = [2, 3, 5, 7, 11, 13].<span class="apidocCodeKeywordSpan">map</span>(function(id){
+return getJSON(&#x22;/post/&#x22; + id + &#x22;.json&#x22;);
+});
+
+RSVP.all(promises).then(function(posts) {
+// posts contains an array of results for the given promises
+}).catch(function(reason){
+// if any of the promises fails.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.off" id="apidoc.element.rsvp.off">
+        function <span class="apidocSignatureSpan">rsvp.</span>off
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function off() {
+  config[&#x27;off&#x27;].apply(config, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.on" id="apidoc.element.rsvp.on">
+        function <span class="apidocSignatureSpan">rsvp.</span>on
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function on() {
+  config[&#x27;on&#x27;].apply(config, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+`RSVP` has a solution for this problem built in.
+
+You can register functions to be called when an uncaught error occurs
+within your promises. These callback functions can be anything, but a common
+practice is to call `console.assert` to dump the error to the console.
+
+```javascript
+RSVP.<span class="apidocCodeKeywordSpan">on</span>(&#x27;error&#x27;, function(reason) {
+  console.assert(false, reason);
+});
+```
+
+`RSVP` allows Promises to be labeled: `Promise.resolve(value, &#x27;I AM A LABEL&#x27;)`
+If provided, this label is passed as the second argument to `RSVP.on(&#x27;error&#x27;)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.race" id="apidoc.element.rsvp.race">
+        function <span class="apidocSignatureSpan">rsvp.</span>race
+        <span class="apidocSignatureSpan">(array, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function race$3(array, label) {
+  return Promise$1.race(array, label);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.reject" id="apidoc.element.rsvp.reject">
+        function <span class="apidocSignatureSpan">rsvp.</span>reject
+        <span class="apidocSignatureSpan">(reason, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function reject$3(reason, label) {
+  return Promise$1.reject(reason, label);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.resolve" id="apidoc.element.rsvp.resolve">
+        function <span class="apidocSignatureSpan">rsvp.</span>resolve
+        <span class="apidocSignatureSpan">(value, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resolve$3(value, label) {
+  return Promise$1.resolve(value, label);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+RSVP.on(&#x27;error&#x27;, function(reason) {
+console.assert(false, reason);
+});
+```
+
+`RSVP` allows Promises to be labeled: `Promise.<span class="apidocCodeKeywordSpan">resolve</span>(value, &#x27;I AM A LABEL&#x27
+;)`
+If provided, this label is passed as the second argument to `RSVP.on(&#x27;error&#x27;)`
+
+```javascript
+RSVP.on(&#x27;error&#x27;, function(reason, label) {
+if (label) {
+  console.error(label);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.rethrow" id="apidoc.element.rsvp.rethrow">
+        function <span class="apidocSignatureSpan">rsvp.</span>rethrow
+        <span class="apidocSignatureSpan">(reason)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function rethrow$1(reason) {
+  setTimeout(function () {
+    throw reason;
+  });
+  throw reason;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rsvp.EventTarget" id="apidoc.module.rsvp.EventTarget">module rsvp.EventTarget</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.EventTarget.mixin" id="apidoc.element.rsvp.EventTarget.mixin">
+        function <span class="apidocSignatureSpan">rsvp.EventTarget.</span>mixin
+        <span class="apidocSignatureSpan">(object)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function mixin(object) {
+  object[&#x27;on&#x27;] = this[&#x27;on&#x27;];
+  object[&#x27;off&#x27;] = this[&#x27;off&#x27;];
+  object[&#x27;trigger&#x27;] = this[&#x27;trigger&#x27;];
+  object._promiseCallbacks = undefined;
+  return object;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.EventTarget.off" id="apidoc.element.rsvp.EventTarget.off">
+        function <span class="apidocSignatureSpan">rsvp.EventTarget.</span>off
+        <span class="apidocSignatureSpan">(eventName, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function off(eventName, callback) {
+  var allCallbacks = callbacksFor(this),
+      callbacks = undefined,
+      index = undefined;
+
+  if (!callback) {
+    allCallbacks[eventName] = [];
+    return;
+  }
+
+  callbacks = allCallbacks[eventName];
+
+  index = indexOf(callbacks, callback);
+
+  if (index !== -1) {
+    callbacks.splice(index, 1);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.EventTarget.on" id="apidoc.element.rsvp.EventTarget.on">
+        function <span class="apidocSignatureSpan">rsvp.EventTarget.</span>on
+        <span class="apidocSignatureSpan">(eventName, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function on(eventName, callback) {
+  if (typeof callback !== &#x27;function&#x27;) {
+    throw new TypeError(&#x27;Callback must be a function&#x27;);
+  }
+
+  var allCallbacks = callbacksFor(this),
+      callbacks = undefined;
+
+  callbacks = allCallbacks[eventName];
+
+  if (!callbacks) {
+    callbacks = allCallbacks[eventName] = [];
+  }
+
+  if (indexOf(callbacks, callback) === -1) {
+    callbacks.push(callback);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+`RSVP` has a solution for this problem built in.
+
+You can register functions to be called when an uncaught error occurs
+within your promises. These callback functions can be anything, but a common
+practice is to call `console.assert` to dump the error to the console.
+
+```javascript
+RSVP.<span class="apidocCodeKeywordSpan">on</span>(&#x27;error&#x27;, function(reason) {
+  console.assert(false, reason);
+});
+```
+
+`RSVP` allows Promises to be labeled: `Promise.resolve(value, &#x27;I AM A LABEL&#x27;)`
+If provided, this label is passed as the second argument to `RSVP.on(&#x27;error&#x27;)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.EventTarget.trigger" id="apidoc.element.rsvp.EventTarget.trigger">
+        function <span class="apidocSignatureSpan">rsvp.EventTarget.</span>trigger
+        <span class="apidocSignatureSpan">(eventName, options, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function trigger(eventName, options, label) {
+  var allCallbacks = callbacksFor(this),
+      callbacks = undefined,
+      callback = undefined;
+
+  if (callbacks = allCallbacks[eventName]) {
+    // Don&#x27;t cache the callbacks.length since it may grow
+    for (var i = 0; i &#x3c; callbacks.length; i++) {
+      callback = callbacks[i];
+
+      callback(options, label);
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rsvp.Promise" id="apidoc.module.rsvp.Promise">module rsvp.Promise</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.Promise.Promise" id="apidoc.element.rsvp.Promise.Promise">
+        function <span class="apidocSignatureSpan">rsvp.</span>Promise
+        <span class="apidocSignatureSpan">(resolver, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Promise$1(resolver, label) {
+  this._id = counter++;
+  this._label = label;
+  this._state = undefined;
+  this._result = undefined;
+  this._subscribers = [];
+
+  config.instrument &#x26;&#x26; instrument$1(&#x27;created&#x27;, this);
+
+  if (noop !== resolver) {
+    typeof resolver !== &#x27;function&#x27; &#x26;&#x26; needsResolver();
+    this instanceof Promise$1 ? initializePromise(this, resolver) : needsNew();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+section below on TaskJS for more information.
+
+### Basic Usage
+
+```javascript
+var RSVP = require(&#x27;rsvp&#x27;);
+
+var promise = new RSVP.<span class="apidocCodeKeywordSpan">Promise</span>(function(resolve, reject) {
+  // succeed
+  resolve(value);
+  // or reject
+  reject(error);
+});
+
+promise.then(function(value) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.Promise.all" id="apidoc.element.rsvp.Promise.all">
+        function <span class="apidocSignatureSpan">rsvp.Promise.</span>all
+        <span class="apidocSignatureSpan">(entries, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function all$1(entries, label) {
+  return new Enumerator(this, entries, true, /* abort on reject */label).promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+is rejected.
+
+```javascript
+var promises = [2, 3, 5, 7, 11, 13].map(function(id){
+  return getJSON(&#x22;/post/&#x22; + id + &#x22;.json&#x22;);
+});
+
+RSVP.<span class="apidocCodeKeywordSpan">all</span>(promises).then(function(posts) {
+  // posts contains an array of results for the given promises
+}).catch(function(reason){
+  // if any of the promises fails.
+});
+```
+
+## Hash of promises
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.Promise.cast" id="apidoc.element.rsvp.Promise.cast">
+        function <span class="apidocSignatureSpan">rsvp.Promise.</span>cast
+        <span class="apidocSignatureSpan">(object, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resolve$1(object, label) {
+<span class="apidocCodeCommentSpan">  /*jshint validthis:true */
+</span>  var Constructor = this;
+
+  if (object &#x26;&#x26; typeof object === &#x27;object&#x27; &#x26;&#x26; object.constructor === Constructor) {
+    return object;
+  }
+
+  var promise = new Constructor(noop, label);
+  resolve(promise, object);
+  return promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.Promise.race" id="apidoc.element.rsvp.Promise.race">
+        function <span class="apidocSignatureSpan">rsvp.Promise.</span>race
+        <span class="apidocSignatureSpan">(entries, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function race$1(entries, label) {
+<span class="apidocCodeCommentSpan">  /*jshint validthis:true */
+</span>  var Constructor = this;
+
+  var promise = new Constructor(noop, label);
+
+  if (!isArray(entries)) {
+    reject(promise, new TypeError(&#x27;You must pass an array to race.&#x27;));
+    return promise;
+  }
+
+  for (var i = 0; promise._state === PENDING &#x26;&#x26; i &#x3c; entries.length; i++) {
+    subscribe(Constructor.resolve(entries[i]), undefined, function (value) {
+      return resolve(promise, value);
+    }, function (reason) {
+      return reject(promise, reason);
+    });
+  }
+
+  return promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.Promise.reject" id="apidoc.element.rsvp.Promise.reject">
+        function <span class="apidocSignatureSpan">rsvp.Promise.</span>reject
+        <span class="apidocSignatureSpan">(reason, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function reject$1(reason, label) {
+<span class="apidocCodeCommentSpan">  /*jshint validthis:true */
+</span>  var Constructor = this;
+  var promise = new Constructor(noop, label);
+  reject(promise, reason);
+  return promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.Promise.resolve" id="apidoc.element.rsvp.Promise.resolve">
+        function <span class="apidocSignatureSpan">rsvp.Promise.</span>resolve
+        <span class="apidocSignatureSpan">(object, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resolve$1(object, label) {
+<span class="apidocCodeCommentSpan">  /*jshint validthis:true */
+</span>  var Constructor = this;
+
+  if (object &#x26;&#x26; typeof object === &#x27;object&#x27; &#x26;&#x26; object.constructor === Constructor) {
+    return object;
+  }
+
+  var promise = new Constructor(noop, label);
+  resolve(promise, object);
+  return promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+RSVP.on(&#x27;error&#x27;, function(reason) {
+console.assert(false, reason);
+});
+```
+
+`RSVP` allows Promises to be labeled: `Promise.<span class="apidocCodeKeywordSpan">resolve</span>(value, &#x27;I AM A LABEL&#x27
+;)`
+If provided, this label is passed as the second argument to `RSVP.on(&#x27;error&#x27;)`
+
+```javascript
+RSVP.on(&#x27;error&#x27;, function(reason, label) {
+if (label) {
+  console.error(label);
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rsvp.Promise.prototype" id="apidoc.module.rsvp.Promise.prototype">module rsvp.Promise.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.Promise.prototype._onError" id="apidoc.element.rsvp.Promise.prototype._onError">
+        function <span class="apidocSignatureSpan">rsvp.Promise.prototype.</span>_onError
+        <span class="apidocSignatureSpan">(reason)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _onError(reason) {
+  var promise = this;
+  config.after(function () {
+    if (promise._onError) {
+      config[&#x27;trigger&#x27;](&#x27;error&#x27;, reason, promise._label);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.Promise.prototype.catch" id="apidoc.element.rsvp.Promise.prototype.catch">
+        function <span class="apidocSignatureSpan">rsvp.Promise.prototype.</span>catch
+        <span class="apidocSignatureSpan">(onRejection, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _catch(onRejection, label) {
+  return this.then(undefined, onRejection, label);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  resolve(value);
+  // or reject
+  reject(error);
+});
+
+promise.then(function(value) {
+  // success
+}).<span class="apidocCodeKeywordSpan">catch</span>(function(error) {
+  // failure
+});
+```
+
+Once a promise has been resolved or rejected, it cannot be resolved or
+rejected again.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.Promise.prototype.constructor" id="apidoc.element.rsvp.Promise.prototype.constructor">
+        function <span class="apidocSignatureSpan">rsvp.Promise.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(resolver, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Promise$1(resolver, label) {
+  this._id = counter++;
+  this._label = label;
+  this._state = undefined;
+  this._result = undefined;
+  this._subscribers = [];
+
+  config.instrument &#x26;&#x26; instrument$1(&#x27;created&#x27;, this);
+
+  if (noop !== resolver) {
+    typeof resolver !== &#x27;function&#x27; &#x26;&#x26; needsResolver();
+    this instanceof Promise$1 ? initializePromise(this, resolver) : needsNew();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.Promise.prototype.finally" id="apidoc.element.rsvp.Promise.prototype.finally">
+        function <span class="apidocSignatureSpan">rsvp.Promise.prototype.</span>finally
+        <span class="apidocSignatureSpan">(callback, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _finally(callback, label) {
+  var promise = this;
+  var constructor = promise.constructor;
+
+  return promise.then(function (value) {
+    return constructor.resolve(callback()).then(function () {
+      return value;
+    });
+  }, function (reason) {
+    return constructor.resolve(callback()).then(function () {
+      throw reason;
+    });
+  }, label);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+`finally` will be invoked regardless of the promise&#x27;s fate, just as native
+try/catch/finally behaves.
+
+```js
+findAuthor().catch(function(reason){
+  return findOtherAuthor();
+}).<span class="apidocCodeKeywordSpan">finally</span>(function(){
+  // author was either found, or not
+});
+```
+
+
+## Arrays of promises
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.Promise.prototype.then" id="apidoc.element.rsvp.Promise.prototype.then">
+        function <span class="apidocSignatureSpan">rsvp.Promise.prototype.</span>then
+        <span class="apidocSignatureSpan">(onFulfillment, onRejection, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function then(onFulfillment, onRejection, label) {
+  var _arguments = arguments;
+
+  var parent = this;
+  var state = parent._state;
+
+  if (state === FULFILLED &#x26;&#x26; !onFulfillment || state === REJECTED &#x26;&#x26; !onRejection) {
+    config.instrument &#x26;&#x26; instrument$1(&#x27;chained&#x27;, parent, parent);
+    return parent;
+  }
+
+  parent._onError = null;
+
+  var child = new parent.constructor(noop, label);
+  var result = parent._result;
+
+  config.instrument &#x26;&#x26; instrument$1(&#x27;chained&#x27;, parent, child);
+
+  if (state) {
+    (function () {
+      var callback = _arguments[state - 1];
+      config.async(function () {
+        return invokeCallback(state, child, callback, result);
+      });
+    })();
+  } else {
+    subscribe(parent, child, onFulfillment, onRejection);
+  }
+
+  return child;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var promise = new RSVP.Promise(function(resolve, reject) {
+  // succeed
+  resolve(value);
+  // or reject
+  reject(error);
+});
+
+promise.<span class="apidocCodeKeywordSpan">then</span>(function(value) {
+  // success
+}).catch(function(error) {
+  // failure
+});
+```
+
+Once a promise has been resolved or rejected, it cannot be resolved or
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rsvp.default" id="apidoc.module.rsvp.default">module rsvp.default</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.Promise" id="apidoc.element.rsvp.default.Promise">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>Promise
+        <span class="apidocSignatureSpan">(resolver, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Promise$1(resolver, label) {
+  this._id = counter++;
+  this._label = label;
+  this._state = undefined;
+  this._result = undefined;
+  this._subscribers = [];
+
+  config.instrument &#x26;&#x26; instrument$1(&#x27;created&#x27;, this);
+
+  if (noop !== resolver) {
+    typeof resolver !== &#x27;function&#x27; &#x26;&#x26; needsResolver();
+    this instanceof Promise$1 ? initializePromise(this, resolver) : needsNew();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+section below on TaskJS for more information.
+
+### Basic Usage
+
+```javascript
+var RSVP = require(&#x27;rsvp&#x27;);
+
+var promise = new RSVP.<span class="apidocCodeKeywordSpan">Promise</span>(function(resolve, reject) {
+  // succeed
+  resolve(value);
+  // or reject
+  reject(error);
+});
+
+promise.then(function(value) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.all" id="apidoc.element.rsvp.default.all">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>all
+        <span class="apidocSignatureSpan">(array, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function all$3(array, label) {
+  return Promise$1.all(array, label);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+is rejected.
+
+```javascript
+var promises = [2, 3, 5, 7, 11, 13].map(function(id){
+  return getJSON(&#x22;/post/&#x22; + id + &#x22;.json&#x22;);
+});
+
+RSVP.<span class="apidocCodeKeywordSpan">all</span>(promises).then(function(posts) {
+  // posts contains an array of results for the given promises
+}).catch(function(reason){
+  // if any of the promises fails.
+});
+```
+
+## Hash of promises
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.allSettled" id="apidoc.element.rsvp.default.allSettled">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>allSettled
+        <span class="apidocSignatureSpan">(entries, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function allSettled$1(entries, label) {
+  return new AllSettled(Promise$1, entries, label).promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.asap" id="apidoc.element.rsvp.default.asap">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>asap
+        <span class="apidocSignatureSpan">(callback, arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function asap$1(callback, arg) {
+  queue$1[len] = callback;
+  queue$1[len + 1] = arg;
+  len += 2;
+  if (len === 2) {
+    // If len is 1, that means that we need to schedule an async flush.
+    // If additional callbacks are queued before the queue is flushed, they
+    // will be processed by this flush that we are scheduling.
+    scheduleFlush$1();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.async" id="apidoc.element.rsvp.default.async">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>async
+        <span class="apidocSignatureSpan">(callback, arg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function async(callback, arg) {
+  return config.async(callback, arg);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.cast" id="apidoc.element.rsvp.default.cast">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>cast
+        <span class="apidocSignatureSpan">(value, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resolve$3(value, label) {
+  return Promise$1.resolve(value, label);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.configure" id="apidoc.element.rsvp.default.configure">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>configure
+        <span class="apidocSignatureSpan">(name, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function configure(name, value) {
+  if (name === &#x27;onerror&#x27;) {
+    // handle for legacy users that expect the actual
+    // error to be passed to their function added via
+    // `RSVP.configure(&#x27;onerror&#x27;, someFunctionHere);`
+    config[&#x27;on&#x27;](&#x27;error&#x27;, value);
+    return;
+  }
+
+  if (arguments.length === 2) {
+    config[name] = value;
+  } else {
+    return config[name];
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+```
+
+
+**NOTE:** promises do allow for errors to be handled asynchronously, so
+this callback may result in false positives.
+
+**NOTE:** Usage of `RSVP.<span class="apidocCodeKeywordSpan">configure</span>(&#x27;onerror&#x27;, yourCustomFunction);` is
+deprecated in favor of using `RSVP.on`.
+
+
+## Finally
+
+`finally` will be invoked regardless of the promise&#x27;s fate, just as native
+try/catch/finally behaves.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.defer" id="apidoc.element.rsvp.default.defer">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>defer
+        <span class="apidocSignatureSpan">(label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function defer$1(label) {
+  var deferred = { resolve: undefined, reject: undefined };
+
+  deferred.promise = new Promise$1(function (resolve, reject) {
+    deferred.resolve = resolve;
+    deferred.reject = reject;
+  }, label);
+
+  return deferred;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  or
+{ state: &#x27;rejected&#x27;, reason: reason }
+```
+
+## Deferred
+
+&#x3e; The `RSVP.Promise` constructor is generally a better, less error-prone choice
+&#x3e; than `RSVP.<span class="apidocCodeKeywordSpan">defer</span>()`. Promises are recommended unless the specific
+&#x3e; properties of deferred are needed.
+
+Sometimes one needs to create a deferred object, without immediately specifying
+how it will be resolved. These deferred objects are essentially a wrapper around
+a promise, whilst providing late access to the `resolve()` and `reject()` methods.
+
+A deferred object has this form: `{ promise, resolve(x), reject(r) }`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.denodeify" id="apidoc.element.rsvp.default.denodeify">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>denodeify
+        <span class="apidocSignatureSpan">(nodeFunc, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function denodeify$1(nodeFunc, options) {
+  var fn = function fn() {
+    var self = this;
+    var l = arguments.length;
+    var args = new Array(l + 1);
+    var promiseInput = false;
+
+    for (var i = 0; i &#x3c; l; ++i) {
+      var arg = arguments[i];
+
+      if (!promiseInput) {
+        // TODO: clean this up
+        promiseInput = needsPromiseInput(arg);
+        if (promiseInput === GET_THEN_ERROR$1) {
+          var p = new Promise$1(noop);
+          reject(p, GET_THEN_ERROR$1.value);
+          return p;
+        } else if (promiseInput &#x26;&#x26; promiseInput !== true) {
+          arg = wrapThenable(promiseInput, arg);
+        }
+      }
+      args[i] = arg;
+    }
+
+    var promise = new Promise$1(noop);
+
+    args[l] = function (err, val) {
+      if (err) reject(promise, err);else if (options === undefined) resolve(promise, val);else if (options === true) resolve(promise
+, arrayResult(arguments));else if (isArray(options)) resolve(promise, makeObject(arguments, options));else resolve(promise, val);
+    };
+
+    if (promiseInput) {
+      return handlePromiseInput(promise, args, nodeFunc, self);
+    } else {
+      return handleValueInput(promise, args, nodeFunc, self);
+    }
+  };
+
+  fn.__proto__ = nodeFunc;
+
+  return fn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.filter" id="apidoc.element.rsvp.default.filter">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>filter
+        <span class="apidocSignatureSpan">(promises, filterFn, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function filter$1(promises, filterFn, label) {
+  var promise = isArray(promises) ? resolveAll(promises, label) : resolveSingle(promises, label);
+  return promise.then(function (values) {
+    if (!isFunction(filterFn)) {
+      throw new TypeError(&#x22;You must pass a function as filter&#x27;s second argument.&#x22;);
+    }
+
+    var length = values.length;
+    var filtered = new Array(length);
+
+    for (var i = 0; i &#x3c; length; i++) {
+      filtered[i] = filterFn(values[i]);
+    }
+
+    return resolveAll(filtered, label).then(function (filtered) {
+      var results = new Array(length);
+      var newLength = 0;
+
+      for (var i = 0; i &#x3c; length; i++) {
+        if (filtered[i]) {
+          results[newLength] = values[i];
+          newLength++;
+        }
+      }
+
+      results.length = newLength;
+
+      return results;
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.hash" id="apidoc.element.rsvp.default.hash">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>hash
+        <span class="apidocSignatureSpan">(object, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function hash$1(object, label) {
+  return new PromiseHash(Promise$1, object, label).promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+var promises = {
+  posts: getJSON(&#x22;/posts.json&#x22;),
+  users: getJSON(&#x22;/users.json&#x22;)
+};
+
+RSVP.<span class="apidocCodeKeywordSpan">hash</span>(promises).then(function(results) {
+  console.log(results.users) // print the users.json results
+  console.log(results.posts) // print the posts.json results
+});
+```
+
+## All settled and hash settled
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.hashSettled" id="apidoc.element.rsvp.default.hashSettled">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>hashSettled
+        <span class="apidocSignatureSpan">(object, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function hashSettled$1(object, label) {
+  return new HashSettled(Promise$1, object, label).promise;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.map" id="apidoc.element.rsvp.default.map">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>map
+        <span class="apidocSignatureSpan">(promises, mapFn, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function map$1(promises, mapFn, label) {
+  return Promise$1.all(promises, label).then(function (values) {
+    if (!isFunction(mapFn)) {
+      throw new TypeError(&#x22;You must pass a function as map&#x27;s second argument.&#x22;);
+    }
+
+    var length = values.length;
+    var results = new Array(length);
+
+    for (var i = 0; i &#x3c; length; i++) {
+      results[i] = mapFn(values[i]);
+    }
+
+    return Promise$1.all(results, label);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Sometimes you might want to work with many promises at once. If you
+pass an array of promises to the `all()` method it will return a new
+promise that will be fulfilled when all of the promises in the array
+have been fulfilled; or rejected immediately if any promise in the array
+is rejected.
+
+```javascript
+var promises = [2, 3, 5, 7, 11, 13].<span class="apidocCodeKeywordSpan">map</span>(function(id){
+return getJSON(&#x22;/post/&#x22; + id + &#x22;.json&#x22;);
+});
+
+RSVP.all(promises).then(function(posts) {
+// posts contains an array of results for the given promises
+}).catch(function(reason){
+// if any of the promises fails.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.off" id="apidoc.element.rsvp.default.off">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>off
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function off() {
+  config[&#x27;off&#x27;].apply(config, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.on" id="apidoc.element.rsvp.default.on">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>on
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function on() {
+  config[&#x27;on&#x27;].apply(config, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+`RSVP` has a solution for this problem built in.
+
+You can register functions to be called when an uncaught error occurs
+within your promises. These callback functions can be anything, but a common
+practice is to call `console.assert` to dump the error to the console.
+
+```javascript
+RSVP.<span class="apidocCodeKeywordSpan">on</span>(&#x27;error&#x27;, function(reason) {
+  console.assert(false, reason);
+});
+```
+
+`RSVP` allows Promises to be labeled: `Promise.resolve(value, &#x27;I AM A LABEL&#x27;)`
+If provided, this label is passed as the second argument to `RSVP.on(&#x27;error&#x27;)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.race" id="apidoc.element.rsvp.default.race">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>race
+        <span class="apidocSignatureSpan">(array, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function race$3(array, label) {
+  return Promise$1.race(array, label);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.reject" id="apidoc.element.rsvp.default.reject">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>reject
+        <span class="apidocSignatureSpan">(reason, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function reject$3(reason, label) {
+  return Promise$1.reject(reason, label);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.resolve" id="apidoc.element.rsvp.default.resolve">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>resolve
+        <span class="apidocSignatureSpan">(value, label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resolve$3(value, label) {
+  return Promise$1.resolve(value, label);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+RSVP.on(&#x27;error&#x27;, function(reason) {
+console.assert(false, reason);
+});
+```
+
+`RSVP` allows Promises to be labeled: `Promise.<span class="apidocCodeKeywordSpan">resolve</span>(value, &#x27;I AM A LABEL&#x27
+;)`
+If provided, this label is passed as the second argument to `RSVP.on(&#x27;error&#x27;)`
+
+```javascript
+RSVP.on(&#x27;error&#x27;, function(reason, label) {
+if (label) {
+  console.error(label);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rsvp.default.rethrow" id="apidoc.element.rsvp.default.rethrow">
+        function <span class="apidocSignatureSpan">rsvp.default.</span>rethrow
+        <span class="apidocSignatureSpan">(reason)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function rethrow$1(reason) {
+  setTimeout(function () {
+    throw reason;
+  });
+  throw reason;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
