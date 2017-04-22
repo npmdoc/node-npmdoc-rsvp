@@ -110,7 +110,8 @@
         "test:node": "ember build && mocha ./dist/test/browserify",
         "test:server": "ember test --server"
     },
-    "version": "3.5.0"
+    "version": "3.5.0",
+    "bin": {}
 }
 ```
 
